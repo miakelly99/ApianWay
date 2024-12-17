@@ -1,0 +1,7 @@
+extern u64 gGIKindlingPackDL_pack_fabric_ci4[];
+extern u64 gGIKindlingPackDL_pack_fabric_pal_rgba16[];
+extern Vtx gGIKindlingPackDL_gGIKindlingPackDL_mesh_layer_Opaque_vtx_cull[8];
+extern Vtx gGIKindlingPackDL_gGIKindlingPackDL_mesh_layer_Opaque_vtx_0[194];
+extern Gfx gGIKindlingPackDL_gGIKindlingPackDL_mesh_layer_Opaque_tri_0[];
+extern Gfx mat_gGIKindlingPackDL_f3dlite_material_006_layerOpaque[];
+extern Gfx gGIKindlingPackDL[];

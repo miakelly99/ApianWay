@@ -1548,6 +1548,7 @@ u8 Item_Give(PlayState* play, u8 item) {
         }
         Inventory_ChangeUpgrade(UPG_DEKU_STICKS, 2);
         AMMO(ITEM_DEKU_STICK) = CAPACITY(UPG_DEKU_STICKS, 2);
+				gSaveContext.save.info.playerData.isMagicAcquired = true;
         return ITEM_NONE;
     } else if (item == ITEM_DEKU_STICK_UPGRADE_30) {
         if (gSaveContext.save.info.inventory.items[slot] == ITEM_NONE) {

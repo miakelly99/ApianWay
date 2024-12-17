@@ -10640,6 +10640,14 @@ beginseg
 endseg
 
 beginseg
+    name "object_gi_kindling_pack"
+    compress
+    romalign 0x1000
+    include "$(BUILD_DIR)/assets/objects/object_gi_kindling_pack/object_gi_kindling_pack.o"
+    number 6
+endseg
+
+beginseg
     name "g_pn_01"
     compress
     romalign 0x1000
