@@ -4,8 +4,8 @@
 /**
  * Header Child Day (Default)
 */
-#define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_OBJECTLIST 1
-#define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_ACTORLIST 1
+#define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_OBJECTLIST 2
+#define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_ACTORLIST 2
 SceneCmd testing_scene_room_0_header00[] = {
     SCENE_CMD_ROOM_SHAPE(&testing_scene_room_0_shapeHeader),
     SCENE_CMD_ECHO_SETTINGS(0x00),
@@ -18,10 +18,19 @@ SceneCmd testing_scene_room_0_header00[] = {
 };
 
 s16 testing_scene_room_0_header00_objectList[LENGTH_TESTING_SCENE_ROOM_0_HEADER00_OBJECTLIST] = {
+    OBJECT_BOX,
     OBJECT_SYOKUDAI,
 };
 
 ActorEntry testing_scene_room_0_header00_actorList[LENGTH_TESTING_SCENE_ROOM_0_HEADER00_ACTORLIST] = {
+    // Treasure Chest
+    {
+        /* Actor ID   */ ACTOR_EN_BOX,
+        /* Position   */ { -233, 0, 220 },
+        /* Rotation   */ { DEG_TO_BINANG(0.000), DEG_TO_BINANG(0.000), DEG_TO_BINANG(0.000) },
+        /* Parameters */ 0x00A0
+    },
+
     // Torch
     {
         /* Actor ID   */ ACTOR_OBJ_SYOKUDAI,
@@ -153,14 +162,14 @@ Vtx testing_scene_room_0_dl_Ground_mesh_layer_Opaque_vtx_cull[8] = {
 };
 
 Vtx testing_scene_room_0_dl_Ground_mesh_layer_Opaque_vtx_0[8] = {
-	{{ {-91, 0, 91}, 0, {-1729, 2721}, {0, 127, 0, 255} }},
-	{{ {-91, 0, -91}, 0, {-1729, -1729}, {0, 127, 0, 255} }},
-	{{ {-336, 0, -336}, 0, {-7671, -7671}, {0, 127, 0, 255} }},
-	{{ {336, 0, -336}, 0, {8663, -7671}, {0, 127, 0, 255} }},
-	{{ {91, 0, -91}, 0, {2721, -1729}, {0, 127, 0, 255} }},
-	{{ {336, 0, 336}, 0, {8663, 8663}, {0, 127, 0, 255} }},
-	{{ {91, 0, 91}, 0, {2721, 2721}, {0, 127, 0, 255} }},
-	{{ {-336, 0, 336}, 0, {-7671, 8663}, {0, 127, 0, 255} }},
+	{{ {-91, 0, 91}, 0, {457, 535}, {0, 127, 0, 255} }},
+	{{ {-91, 0, -91}, 0, {457, 457}, {0, 127, 0, 255} }},
+	{{ {-336, 0, -336}, 0, {353, 353}, {0, 127, 0, 255} }},
+	{{ {336, 0, -336}, 0, {639, 353}, {0, 127, 0, 255} }},
+	{{ {91, 0, -91}, 0, {535, 457}, {0, 127, 0, 255} }},
+	{{ {336, 0, 336}, 0, {639, 639}, {0, 127, 0, 255} }},
+	{{ {91, 0, 91}, 0, {535, 535}, {0, 127, 0, 255} }},
+	{{ {-336, 0, 336}, 0, {353, 639}, {0, 127, 0, 255} }},
 };
 
 Gfx testing_scene_room_0_dl_Ground_mesh_layer_Opaque_tri_0[] = {

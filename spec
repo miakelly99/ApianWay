@@ -19603,13 +19603,13 @@ endseg
 beginseg
     name "testing_scene"
     romalign 0x1000
-    include "$(BUILD_DIR)/assets/scenes/apian_way/oot/testing_scene/testing_scene_scene.o"
+    include "$(BUILD_DIR)/assets/scenes/apian_way/testing_scene/testing_scene_scene.o"
     number 2
 endseg
 
 beginseg
     name "testing_scene_room_0"
     romalign 0x1000
-    include "$(BUILD_DIR)/assets/scenes/apian_way/oot/testing_scene/testing_scene_room_0.o"
+    include "$(BUILD_DIR)/assets/scenes/apian_way/testing_scene/testing_scene_room_0.o"
     number 3
 endseg

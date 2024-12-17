@@ -68,7 +68,7 @@ static SavePlayerData sNewSavePlayerData = {
     },                                                  // adultEquips
     0,                                                  // unk_38
     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },       // unk_3C
-    SCENE_LINKS_HOUSE,                                  // savedSceneId
+    SCENE_TESTING_SCENE,                                // savedSceneId
 };
 
 static ItemEquips sNewSaveEquips = {
@@ -390,70 +390,8 @@ void Sram_OpenSave(SramContext* sramCtx) {
            ((void)0, gSaveContext.save.entranceIndex));
 
     switch (gSaveContext.save.info.playerData.savedSceneId) {
-        case SCENE_DEKU_TREE:
-        case SCENE_DODONGOS_CAVERN:
-        case SCENE_JABU_JABU:
-        case SCENE_FOREST_TEMPLE:
-        case SCENE_FIRE_TEMPLE:
-        case SCENE_WATER_TEMPLE:
-        case SCENE_SPIRIT_TEMPLE:
-        case SCENE_SHADOW_TEMPLE:
-        case SCENE_BOTTOM_OF_THE_WELL:
-        case SCENE_ICE_CAVERN:
-        case SCENE_GANONS_TOWER:
-        case SCENE_GERUDO_TRAINING_GROUND:
-        case SCENE_THIEVES_HIDEOUT:
-        case SCENE_INSIDE_GANONS_CASTLE:
-            gSaveContext.save.entranceIndex = sDungeonEntrances[gSaveContext.save.info.playerData.savedSceneId];
-            break;
-
-        case SCENE_DEKU_TREE_BOSS:
-            gSaveContext.save.entranceIndex = ENTR_DEKU_TREE_0;
-            break;
-
-        case SCENE_DODONGOS_CAVERN_BOSS:
-            gSaveContext.save.entranceIndex = ENTR_DODONGOS_CAVERN_0;
-            break;
-
-        case SCENE_JABU_JABU_BOSS:
-            gSaveContext.save.entranceIndex = ENTR_JABU_JABU_0;
-            break;
-
-        case SCENE_FOREST_TEMPLE_BOSS:
-            gSaveContext.save.entranceIndex = ENTR_FOREST_TEMPLE_0;
-            break;
-
-        case SCENE_FIRE_TEMPLE_BOSS:
-            gSaveContext.save.entranceIndex = ENTR_FIRE_TEMPLE_0;
-            break;
-
-        case SCENE_WATER_TEMPLE_BOSS:
-            gSaveContext.save.entranceIndex = ENTR_WATER_TEMPLE_0;
-            break;
-
-        case SCENE_SPIRIT_TEMPLE_BOSS:
-            gSaveContext.save.entranceIndex = ENTR_SPIRIT_TEMPLE_0;
-            break;
-
-        case SCENE_SHADOW_TEMPLE_BOSS:
-            gSaveContext.save.entranceIndex = ENTR_SHADOW_TEMPLE_0;
-            break;
-
-        case SCENE_GANONS_TOWER_COLLAPSE_INTERIOR:
-        case SCENE_INSIDE_GANONS_CASTLE_COLLAPSE:
-        case SCENE_GANONDORF_BOSS:
-        case SCENE_GANONS_TOWER_COLLAPSE_EXTERIOR:
-        case SCENE_GANON_BOSS:
-            gSaveContext.save.entranceIndex = ENTR_GANONS_TOWER_0;
-            break;
-
         default:
-            if (gSaveContext.save.info.playerData.savedSceneId != SCENE_LINKS_HOUSE) {
-                gSaveContext.save.entranceIndex =
-                    (LINK_AGE_IN_YEARS == YEARS_CHILD) ? ENTR_LINKS_HOUSE_0 : ENTR_TEMPLE_OF_TIME_7;
-            } else {
-                gSaveContext.save.entranceIndex = ENTR_LINKS_HOUSE_0;
-            }
+            gSaveContext.save.entranceIndex = ENTR_TESTING_SCENE;
             break;
     }
 
@@ -790,10 +728,10 @@ void Sram_InitSave(FileSelectState* fileSelect, SramContext* sramCtx) {
     Sram_InitNewSave();
 #endif
 
-    gSaveContext.save.entranceIndex = ENTR_LINKS_HOUSE_0;
+    gSaveContext.save.entranceIndex = ENTR_TESTING_SCENE;
     gSaveContext.save.linkAge = LINK_AGE_CHILD;
     gSaveContext.save.dayTime = CLOCK_TIME(10, 0);
-    gSaveContext.save.cutsceneIndex = 0xFFF1;
+    gSaveContext.save.cutsceneIndex = 0x0000;
 
 #if DEBUG_FEATURES
     if (fileSelect->buttonIndex == 0) {
