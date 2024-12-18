@@ -4,7 +4,7 @@
 /**
  * Header Child Day (Default)
 */
-#define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_OBJECTLIST 2
+#define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_OBJECTLIST 3
 #define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_ACTORLIST 3
 SceneCmd testing_scene_room_0_header00[] = {
     SCENE_CMD_ROOM_SHAPE(&testing_scene_room_0_shapeHeader),
@@ -18,6 +18,7 @@ SceneCmd testing_scene_room_0_header00[] = {
 };
 
 s16 testing_scene_room_0_header00_objectList[LENGTH_TESTING_SCENE_ROOM_0_HEADER00_OBJECTLIST] = {
+    OBJECT_EN_SKEP,
     OBJECT_BOX,
     OBJECT_SYOKUDAI,
 };

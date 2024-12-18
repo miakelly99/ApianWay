@@ -10655,6 +10655,15 @@ beginseg
 endseg
 
 beginseg
+    name "object_en_skep"
+    compress
+    romalign 0x1000
+    include "$(BUILD_DIR)/assets/objects/object_en_skep/gEnSkepDL.o"
+		include "$(BUILD_DIR)/assets/objects/object_en_skep/gEnSkepCollision_collision.o"
+    number 6
+endseg
+
+beginseg
     name "g_pn_01"
     compress
     romalign 0x1000

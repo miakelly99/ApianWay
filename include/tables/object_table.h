@@ -410,3 +410,4 @@
 /* 0x0190 */ DEFINE_OBJECT(object_timeblock, OBJECT_TIMEBLOCK)
 /* 0x0191 */ DEFINE_OBJECT(object_zl4, OBJECT_ZL4)
 						 DEFINE_OBJECT(object_gi_kindling_pack, OBJECT_GI_KINDLING_PACK)
+						 DEFINE_OBJECT(object_en_skep, OBJECT_EN_SKEP)
