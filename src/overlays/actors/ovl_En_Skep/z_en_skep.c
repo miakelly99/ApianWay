@@ -1,4 +1,5 @@
 #include "z_en_skep.h"
+#include "z64math.h"
 #include "assets/objects/object_en_skep/gEnSkepDL.h"
 #include "assets/objects/object_en_skep/gEnSkepCollision_collision.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
@@ -10,12 +11,13 @@ void EnSkep_Destroy(Actor* thisx, PlayState* play);
 void EnSkep_Update(Actor* thisx, PlayState* play);
 void EnSkep_Draw(Actor* thisx, PlayState* play);
 
+bool EnSkep_IsPlayerFacing(EnSkep* this, PlayState* play);
+
 const ActorProfile En_Skep_Profile = {
 	ACTOR_EN_SKEP,
 	ACTORCAT_BG,
 	FLAGS,
 	OBJECT_EN_SKEP,
-	// OBJECT_GAMEPLAY_KEEP,
 	sizeof(EnSkep),
 	(ActorFunc) EnSkep_Init,
 	(ActorFunc) EnSkep_Destroy,
@@ -24,8 +26,6 @@ const ActorProfile En_Skep_Profile = {
 };
 
 void EnSkep_Init(Actor* thisx, PlayState* play) {
-	PRINTF("Skep init called");
-	
 	EnSkep* this = (EnSkep*)thisx;
 	
 	CollisionHeader* colHeader = NULL;
@@ -35,23 +35,43 @@ void EnSkep_Init(Actor* thisx, PlayState* play) {
 }
 
 void EnSkep_Destroy(Actor* thisx, PlayState* play) {
-	PRINTF("Skep destroy called");
-
 	EnSkep* this = (EnSkep*)thisx;
 
 	DynaPoly_DeleteBgActor(play, &play->colCtx.dyna, this->dyna.bgId);
 }
 
 void EnSkep_Update(Actor* thisx, PlayState* play) {
-	PRINTF("Skep update called");
-
 	EnSkep* this = (EnSkep*)thisx;
 
-	Actor_OfferGetItem(&this->dyna.actor, play, GI_MAX, 60.0f, 30.0f);
+	if (EnSkep_IsPlayerFacing(this, play))
+	{
+		Actor_OfferGetItem(&this->dyna.actor, play, GI_MAX, 30.0f, 30.0f);
+	}
 }
 
 void EnSkep_Draw(Actor* thisx, PlayState* play) {
-	PRINTF("Skep draw called");
-	// Gfx_DrawDListOpa(play, gBombchuDL);
 	Gfx_DrawDListOpa(play, gEnSkepDL);
+}
+
+bool EnSkep_IsPlayerFacing(EnSkep* this, PlayState* play)
+{
+	Player* player = GET_PLAYER(play);
+	Vec2f vecToSkep;
+	vecToSkep.x = this->dyna.actor.world.pos.x - player->actor.world.pos.x;
+	vecToSkep.y = this->dyna.actor.world.pos.z - player->actor.world.pos.z;
+	
+	s16 angle = player->actor.world.rot.y;
+
+	Vec2f playerFacing;
+	playerFacing.x = Math_SinS(angle);
+	playerFacing.y = Math_CosS(angle);	
+	
+	/*
+	PRINTF("%s -- (%f, %f) --- (%f, %f)", angle, vecToSkep.x, vecToSkep.y, playerFacing.x, playerFacing.y);
+	*/
+
+	float dot = vecToSkep.x * playerFacing.x + vecToSkep.y * playerFacing.y;
+
+	PRINTF("%f, %f, %f, %f, %f\n", vecToSkep.x, vecToSkep.y, playerFacing.x, playerFacing.y, dot);
+	return dot > 0;
 }
