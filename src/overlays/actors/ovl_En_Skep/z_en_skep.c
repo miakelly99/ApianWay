@@ -64,11 +64,7 @@ bool EnSkep_IsPlayerFacing(EnSkep* this, PlayState* play)
 
 	Vec2f playerFacing;
 	playerFacing.x = Math_SinS(angle);
-	playerFacing.y = Math_CosS(angle);	
-	
-	/*
-	PRINTF("%s -- (%f, %f) --- (%f, %f)", angle, vecToSkep.x, vecToSkep.y, playerFacing.x, playerFacing.y);
-	*/
+	playerFacing.y = Math_CosS(angle);
 
 	float dot = vecToSkep.x * playerFacing.x + vecToSkep.y * playerFacing.y;
 
