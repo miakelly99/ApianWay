@@ -329,8 +329,7 @@ DrawItemTableEntry sDrawItemTable[] = {
     // farore's wind, OBJECT_GI_GODDESS
     { GetItem_DrawMagicSpell, { gGiMagicSpellDiamondDL, gGiFaroresWindColorDL, gGiMagicSpellOrbDL } },
     // nayru's Love, OBJECT_GI_GODDESS
-    // { GetItem_DrawMagicSpell, { gGiMagicSpellDiamondDL, gGiNayrusLoveColorDL, gGiMagicSpellOrbDL } },
-		{ GetItem_DrawOpa0, {gGiKindlingPackDL} },
+    { GetItem_DrawMagicSpell, { gGiMagicSpellDiamondDL, gGiNayrusLoveColorDL, gGiMagicSpellOrbDL } },
 		// blue fire, OBJECT_GI_FIRE
     { GetItem_DrawBlueFire, { gGiBlueFireChamberstickDL, gGiBlueFireFlameDL } },
     // bugs, OBJECT_GI_INSECT
