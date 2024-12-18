@@ -5,7 +5,7 @@
 #include "global.h"
 
 typedef struct EnSkep {
-	Actor actor;
+	DynaPolyActor dyna;
 } EnSkep;
 
 #endif

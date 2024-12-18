@@ -1,0 +1,5 @@
+extern Vtx gEnSkepCollision_gEnSkepCollision_mesh_layer_Transparent_vtx_cull[8];
+extern Vtx gEnSkepCollision_gEnSkepCollision_mesh_layer_Transparent_vtx_0[42];
+extern Gfx gEnSkepCollision_gEnSkepCollision_mesh_layer_Transparent_tri_0[];
+extern Gfx mat_gEnSkepCollision_f3dlite_material_004_layerTransparent[];
+extern Gfx gEnSkepCollision[];
