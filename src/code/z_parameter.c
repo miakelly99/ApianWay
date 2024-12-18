@@ -1773,6 +1773,7 @@ u8 Item_Give(PlayState* play, u8 item) {
 
         return item;
     } else if ((item >= ITEM_RUPEE_GREEN) && (item <= ITEM_INVALID_8)) {
+				PRINTF("adding %d rupees", sRupeeRefillCounts[item - ITEM_RUPEE_GREEN]);
         Rupees_ChangeBy(sRupeeRefillCounts[item - ITEM_RUPEE_GREEN]);
         return ITEM_NONE;
     } else if (item == ITEM_BOTTLE_EMPTY) {
@@ -1984,7 +1985,9 @@ u8 Item_CheckObtainability(u8 item) {
         }
     } else if ((item >= ITEM_WEIRD_EGG) && (item <= ITEM_CLAIM_CHECK)) {
         return ITEM_NONE;
-    }
+    } else if (item == ITEM_KINDLING_PACK) {
+				return ITEM_NONE;
+		}
 
     return gSaveContext.save.info.inventory.items[slot];
 }
