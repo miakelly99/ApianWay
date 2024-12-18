@@ -5,7 +5,7 @@
  * Header Child Day (Default)
 */
 #define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_OBJECTLIST 2
-#define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_ACTORLIST 2
+#define LENGTH_TESTING_SCENE_ROOM_0_HEADER00_ACTORLIST 3
 SceneCmd testing_scene_room_0_header00[] = {
     SCENE_CMD_ROOM_SHAPE(&testing_scene_room_0_shapeHeader),
     SCENE_CMD_ECHO_SETTINGS(0x00),
@@ -37,6 +37,14 @@ ActorEntry testing_scene_room_0_header00_actorList[LENGTH_TESTING_SCENE_ROOM_0_H
         /* Position   */ { 53, 9, -145 },
         /* Rotation   */ { DEG_TO_BINANG(0.000), DEG_TO_BINANG(0.000), DEG_TO_BINANG(0.000) },
         /* Parameters */ 0x0440
+    },
+
+    // Custom Actor
+    {
+        /* Actor ID   */ ACTOR_EN_SKEP,
+        /* Position   */ { 11, 6, 207 },
+        /* Rotation   */ { DEG_TO_BINANG(0.000), DEG_TO_BINANG(0.000), DEG_TO_BINANG(0.000) },
+        /* Parameters */ 0x0000
     },
 };
 

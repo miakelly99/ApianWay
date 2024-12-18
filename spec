@@ -7582,6 +7582,13 @@ beginseg
     include "$(BUILD_DIR)/src/overlays/actors/ovl_Shot_Sun/ovl_Shot_Sun_reloc.o"
 endseg
 
+beginseg
+    name "ovl_En_Skep"
+    compress
+    include "$(BUILD_DIR)/src/overlays/actors/ovl_En_Skep/z_en_skep.o"
+    include "$(BUILD_DIR)/src/overlays/actors/ovl_En_Skep/ovl_En_Skep_reloc.o"
+endseg
+
 #endif
 
 beginseg
