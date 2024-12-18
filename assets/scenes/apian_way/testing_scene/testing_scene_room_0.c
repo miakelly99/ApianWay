@@ -28,7 +28,7 @@ ActorEntry testing_scene_room_0_header00_actorList[LENGTH_TESTING_SCENE_ROOM_0_H
         /* Actor ID   */ ACTOR_EN_BOX,
         /* Position   */ { -233, 0, 220 },
         /* Rotation   */ { DEG_TO_BINANG(0.000), DEG_TO_BINANG(0.000), DEG_TO_BINANG(0.000) },
-        /* Parameters */ 0x0EE0
+        /* Parameters */ 0x0F80
     },
 
     // Torch
