@@ -153,6 +153,7 @@ void* gItemIcons[] = {
     gItemIconBulletBag30Tex,       // ITEM_BULLET_BAG_30
     gItemIconBulletBag40Tex,       // ITEM_BULLET_BAG_40
     gItemIconBulletBag50Tex,       // ITEM_BULLET_BAG_50
+		gItemIconBulletBag50Tex,			 // ITEM_KINDLING_PACK
     gItemIconQuiver30Tex,          // ITEM_QUIVER_30
     gItemIconQuiver40Tex,          // ITEM_QUIVER_40
     gItemIconQuiver50Tex,          // ITEM_QUIVER_50
