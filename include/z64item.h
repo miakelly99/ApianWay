@@ -184,6 +184,7 @@ typedef enum ItemID {
     /* 0x1D */ ITEM_BOTTLE_BUG,
     /* 0x1E */ ITEM_BOTTLE_BIG_POE,
     /* 0x1F */ ITEM_BOTTLE_MILK_HALF,
+							 ITEM_BOTTLE_HONEY,
     /* 0x20 */ ITEM_BOTTLE_POE,
     /* 0x21 */ ITEM_WEIRD_EGG,
     /* 0x22 */ ITEM_CHICKEN,

@@ -133,6 +133,10 @@ u64 gItemIconBottleMilkHalfTex[] = {
 #include "assets/textures/icon_item_static/bottled_milk_half_icon.rgba32.inc.c"
 };
 
+u64 gItemIconBottleHoneyTex[] = {
+	#include "assets/textures/icon_item_static/custom_icons/bottle_honey_icon.rgba32.inc.c"
+};
+
 u64 gItemIconBottlePoeTex[] = {
 #include "assets/textures/icon_item_static/bottled_poe_icon.rgba32.inc.c"
 };

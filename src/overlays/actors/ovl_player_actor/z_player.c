@@ -1306,6 +1306,7 @@ static s8 sItemActions[] = {
     PLAYER_IA_BOTTLE_BUG,          // ITEM_BOTTLE_BUG
     PLAYER_IA_BOTTLE_BIG_POE,      // ITEM_BOTTLE_BIG_POE
     PLAYER_IA_BOTTLE_MILK_HALF,    // ITEM_BOTTLE_MILK_HALF
+		PLAYER_IA_BOTTLE_HONEY,				 // ITEM_BOTTLE_HONEY
     PLAYER_IA_BOTTLE_POE,          // ITEM_BOTTLE_POE
     PLAYER_IA_WEIRD_EGG,           // ITEM_WEIRD_EGG
     PLAYER_IA_CHICKEN,             // ITEM_CHICKEN
@@ -14026,7 +14027,7 @@ typedef struct BottleCatchInfo {
     /* 0x00 */ s16 actorId;
     /* 0x02 */ u8 itemId;
     /* 0x03 */ u8 itemAction;
-    /* 0x04 */ u8 textId;
+    /* 0x04 */ u16 textId;
 } BottleCatchInfo; // size = 0x06
 
 static BottleCatchInfo sBottleCatchInfo[] = {
@@ -14034,7 +14035,7 @@ static BottleCatchInfo sBottleCatchInfo[] = {
     { ACTOR_EN_FISH, ITEM_BOTTLE_FISH, PLAYER_IA_BOTTLE_FISH, 0x47 },          // BOTTLE_CATCH_FISH
     { ACTOR_EN_ICE_HONO, ITEM_BOTTLE_BLUE_FIRE, PLAYER_IA_BOTTLE_FIRE, 0x5D }, // BOTTLE_CATCH_BLUE_FIRE
     { ACTOR_EN_INSECT, ITEM_BOTTLE_BUG, PLAYER_IA_BOTTLE_BUG, 0x7A },          // BOTTLE_CATCH_BUGS
-		{ ACTOR_EN_SKEP, ITEM_BOTTLE_BUG, PLAYER_IA_BOTTLE_BUG, 0x7A }, 					 // BOTTLE_CATCH_HONEY
+		{ ACTOR_EN_SKEP, ITEM_BOTTLE_HONEY, PLAYER_IA_BOTTLE_HONEY, 0x71B4 }, 					 // BOTTLE_CATCH_HONEY
 };
 
 void Player_Action_SwingBottle(Player* this, PlayState* play) {

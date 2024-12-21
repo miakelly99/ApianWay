@@ -111,6 +111,7 @@ void* gItemIcons[] = {
     gItemIconBottleBugTex,         // ITEM_BOTTLE_BUG
     gItemIconBottleBigPoeTex,      // ITEM_BOTTLE_BIG_POE
     gItemIconBottleMilkHalfTex,    // ITEM_BOTTLE_MILK_HALF
+		gItemIconBottleHoneyTex,			 // ITEM_BOTTLE_HONEY
     gItemIconBottlePoeTex,         // ITEM_BOTTLE_POE
     gItemIconWeirdEggTex,          // ITEM_WEIRD_EGG
     gItemIconChickenTex,           // ITEM_CHICKEN
@@ -248,7 +249,8 @@ u8 gItemSlots[] = {
     SLOT_BOTTLE_1,      // ITEM_BOTTLE_BLUE_FIRE
     SLOT_BOTTLE_1,      // ITEM_BOTTLE_BUG
     SLOT_BOTTLE_1,      // ITEM_BOTTLE_BIG_POE
-    SLOT_BOTTLE_1,      // ITEM_BOTTLE_MILK_HALF
+    SLOT_BOTTLE_1,      // ITEM_BOTTLE_MILK_HALF,
+		SLOT_BOTTLE_1,			// ITEM_BOTTLE_HONEY
     SLOT_BOTTLE_1,      // ITEM_BOTTLE_POE
     SLOT_TRADE_CHILD,   // ITEM_WEIRD_EGG
     SLOT_TRADE_CHILD,   // ITEM_CHICKEN

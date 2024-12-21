@@ -33,6 +33,7 @@ extern u64 gItemIconBottleBlueFireTex[];
 extern u64 gItemIconBottleBugTex[];
 extern u64 gItemIconBottleBigPoeTex[];
 extern u64 gItemIconBottleMilkHalfTex[];
+extern u64 gItemIconBottleHoneyTex[];
 extern u64 gItemIconBottlePoeTex[];
 extern u64 gItemIconWeirdEggTex[];
 extern u64 gItemIconChickenTex[];

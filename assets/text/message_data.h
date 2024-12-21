@@ -12,6 +12,19 @@ MSG(/* MISSING */)
 MSG(/* MISSING */)
 )
 
+DEFINE_MESSAGE(0x71B4, TEXTBOX_TYPE_BLUE, TEXTBOX_POS_BOTTOM,
+MSG( /* MISSING */)
+,
+MSG(
+ITEM_ICON(ITEM_BOTTLE_HONEY) QUICKTEXT_ENABLE "You put " COLOR(YELLOW) "Honey " COLOR(DEFAULT) "in the bottle!" QUICKTEXT_DISABLE "\n"
+"It's quite sticky!\n"
+)
+,
+MSG(/* MISSING */)
+,
+MSG(/* MISSING */)
+)
+
 /*
  * The following two messages should be kept last and in this order.
  * Message 0xFFFD must be last to not break the message debugger (see R_MESSAGE_DEBUGGER_TEXTID).
