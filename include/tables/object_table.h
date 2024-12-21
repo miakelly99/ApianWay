@@ -411,3 +411,4 @@
 /* 0x0191 */ DEFINE_OBJECT(object_zl4, OBJECT_ZL4)
 						 DEFINE_OBJECT(object_gi_kindling_pack, OBJECT_GI_KINDLING_PACK)
 						 DEFINE_OBJECT(object_en_skep, OBJECT_EN_SKEP)
+						 DEFINE_OBJECT(object_gi_smoker, OBJECT_GI_SMOKER)

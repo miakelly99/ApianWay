@@ -79,6 +79,7 @@
 #include "assets/objects/object_st/object_st.h"
 
 #include "assets/objects/object_gi_kindling_pack/object_gi_kindling_pack.h"
+#include "assets/objects/object_gi_smoker/object_gi_smoker.h"
 
 // "Get Item" Model Draw Functions
 void GetItem_DrawMaskOrBombchu(PlayState* play, s16 drawId);
@@ -369,7 +370,8 @@ DrawItemTableEntry sDrawItemTable[] = {
     { GetItem_DrawOpa0, { gGiKokiriSwordDL } },
     // gold skulltula token, OBJECT_ST
     { GetItem_DrawSkullToken, { gSkulltulaTokenDL, gSkulltulaTokenFlameDL } },
-		{ GetItem_DrawOpa0, { gGiKindlingPackDL } }
+		{ GetItem_DrawOpa0, { gGiKindlingPackDL } },
+		{ GetItem_DrawOpa0, { gGiSmokerDL }},
 };
 
 /**

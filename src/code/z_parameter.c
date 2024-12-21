@@ -1854,6 +1854,9 @@ u8 Item_Give(PlayState* play, u8 item) {
     } else if (item == ITEM_KINDLING_PACK) {
 			gSaveContext.save.info.playerData.isMagicAcquired = true;
 			return ITEM_NONE;
+		} else if (item == ITEM_SMOKER) {
+			gSaveContext.save.info.playerData.isMagicAcquired = true;
+			return ITEM_NONE;
 		}
 
     temp = gSaveContext.save.info.inventory.items[slot];
@@ -1986,6 +1989,8 @@ u8 Item_CheckObtainability(u8 item) {
     } else if ((item >= ITEM_WEIRD_EGG) && (item <= ITEM_CLAIM_CHECK)) {
         return ITEM_NONE;
     } else if (item == ITEM_KINDLING_PACK) {
+				return ITEM_NONE;
+		} else if (item == ITEM_SMOKER) {
 				return ITEM_NONE;
 		}
 

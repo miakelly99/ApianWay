@@ -244,6 +244,7 @@ typedef enum ItemID {
     /* 0x58 */ ITEM_DEKU_SEEDS,
 							 // ADD NEW ITEMS HERE
 							 ITEM_KINDLING_PACK,
+							 ITEM_SMOKER,
     /* 0x59 */ ITEM_FISHING_POLE,
     /* 0x5A */ ITEM_SONG_MINUET,
     /* 0x5B */ ITEM_SONG_BOLERO,
@@ -444,8 +445,9 @@ typedef enum GetItemID {
     /* 0x78 */ GI_DEKU_STICK_UPGRADE_30,
     /* 0x79 */ GI_DEKU_NUT_UPGRADE_30,
     /* 0x7A */ GI_DEKU_NUT_UPGRADE_40,
-    /* 0x7B */ GI_BULLET_BAG_50,
-							 GI_KINDLING_PACK,
+     					 GI_BULLET_BAG_50,
+							 GI_KINDLING_PACK, /* F8 */
+							 GI_SMOKER,        /* FA */
     /* 0x7C */ GI_ICE_TRAP, // freezes link when opened from a chest
     /* 0x7D */ GI_TEXT_0, // no model appears over Link, shows text id 0 (pocket egg)	 
     /* 0x7E */ GI_MAX
@@ -569,7 +571,8 @@ typedef enum GetItemDrawID {
     /* 0x72 */ GID_BULLET_BAG_50,
     /* 0x73 */ GID_SWORD_KOKIRI,
     /* 0x74 */ GID_SKULL_TOKEN_2,
-		/* Kindling Pack*/ GID_KINDLING_PACK,
+		/*      */ GID_KINDLING_PACK,
+		/*      */ GID_SMOKER,
     /* 0x75 */ GID_MAX
 } GetItemDrawID;
 

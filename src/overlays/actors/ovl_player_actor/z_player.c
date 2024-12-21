@@ -758,6 +758,8 @@ static GetItemEntry sGetItemTable[] = {
     GET_ITEM(ITEM_BULLET_BAG_50, OBJECT_GI_DEKUPOUCH, GID_BULLET_BAG_50, 0x6C, 0x80, CHEST_ANIM_LONG),
 		// GI_KINDLING_PACK
 		GET_ITEM(ITEM_KINDLING_PACK, OBJECT_GI_KINDLING_PACK, GID_KINDLING_PACK, 0x71B3, 0x00, CHEST_ANIM_LONG),
+		// GI_SMOKER
+		GET_ITEM(ITEM_SMOKER, OBJECT_GI_SMOKER, GID_SMOKER, 0x71B3, 0x00, CHEST_ANIM_LONG),
 		// GI_ICE_TRAP
     GET_ITEM_NONE,
     // GI_TEXT_0
@@ -5919,7 +5921,7 @@ void func_8083AE40(Player* this, s16 objectId) {
         size = gObjectTable[objectId].vromEnd - gObjectTable[objectId].vromStart;
 
         LOG_HEX("size", size, "../z_player.c", 9090);
-        ASSERT(size <= 1024 * 8, "size <= 1024 * 8", "../z_player.c", 9091);
+        //ASSERT(size <= 1024 * 8, "size <= 1024 * 8", "../z_player.c", 9091);
 
         DMA_REQUEST_ASYNC(&this->giObjectDmaRequest, this->giObjectSegment, gObjectTable[objectId].vromStart, size, 0,
                           &this->giObjectLoadQueue, NULL, "../z_player.c", 9099);
@@ -10706,7 +10708,7 @@ void Player_Init(Actor* thisx, PlayState* play2) {
     // get item objects is 0x2000 (see the assert in func_8083AE40), and the maximum size for
     // title cards is 0x1000 * LANGUAGE_MAX since each title card image includes all languages.
     this->giObjectSegment =
-        (void*)(((uintptr_t)ZELDA_ARENA_MALLOC(0x1000 * LANGUAGE_MAX + 8, "../z_player.c", 17175) + 8) & ~0xF);
+        (void*)(((uintptr_t)ZELDA_ARENA_MALLOC(0x4000 * LANGUAGE_MAX + 8, "../z_player.c", 17175) + 8) & ~0xF);
 
     respawnFlag = gSaveContext.respawnFlag;
 

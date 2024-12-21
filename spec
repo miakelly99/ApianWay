@@ -10664,6 +10664,14 @@ beginseg
 endseg
 
 beginseg
+	name "object_gi_smoker"
+	compress
+	romalign 0x1000
+	include "$(BUILD_DIR)/assets/objects/object_gi_smoker/object_gi_smoker.o"
+	number 6
+endseg
+
+beginseg
     name "g_pn_01"
     compress
     romalign 0x1000
