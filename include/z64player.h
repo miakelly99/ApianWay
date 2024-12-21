@@ -145,6 +145,7 @@ typedef enum PlayerItemAction {
     /* 0x1F */ PLAYER_IA_BOTTLE_FISH,
     /* 0x20 */ PLAYER_IA_BOTTLE_FIRE,
     /* 0x21 */ PLAYER_IA_BOTTLE_BUG,
+							 PLAYER_IA_BOTTLE_HONEY,
     /* 0x22 */ PLAYER_IA_BOTTLE_POE,
     /* 0x23 */ PLAYER_IA_BOTTLE_BIG_POE,
     /* 0x24 */ PLAYER_IA_BOTTLE_RUTOS_LETTER,
@@ -153,7 +154,7 @@ typedef enum PlayerItemAction {
     /* 0x27 */ PLAYER_IA_BOTTLE_POTION_GREEN,
     /* 0x28 */ PLAYER_IA_BOTTLE_MILK_FULL,
     /* 0x29 */ PLAYER_IA_BOTTLE_MILK_HALF,
-							 PLAYER_IA_BOTTLE_HONEY,
+							 
     /* 0x2A */ PLAYER_IA_BOTTLE_FAIRY,
     /* 0x2B */ PLAYER_IA_ZELDAS_LETTER,
     /* 0x2C */ PLAYER_IA_WEIRD_EGG,

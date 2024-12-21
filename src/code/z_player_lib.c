@@ -172,6 +172,7 @@ u8 sActionModelGroups[PLAYER_IA_MAX] = {
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_FISH
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_FIRE
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_BUG
+		PLAYER_MODELGROUP_BOTTLE,						// PLAYER_IA_BOTTLE_HONEY
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_POE
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_BIG_POE
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_RUTOS_LETTER
@@ -180,7 +181,6 @@ u8 sActionModelGroups[PLAYER_IA_MAX] = {
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_POTION_GREEN
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_MILK_FULL
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_MILK_HALF
-		PLAYER_MODELGROUP_BOTTLE,						// PLAYER_IA_BOTTLE_HONEY
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE_FAIRY
     PLAYER_MODELGROUP_DEFAULT,          // PLAYER_IA_ZELDAS_LETTER
     PLAYER_MODELGROUP_DEFAULT,          // PLAYER_IA_WEIRD_EGG
@@ -883,7 +883,7 @@ int Player_HoldsBrokenKnife(Player* this) {
 s32 Player_ActionToBottle(Player* this, s32 itemAction) {
     s32 bottle = itemAction - PLAYER_IA_BOTTLE;
 
-    if ((bottle >= 0) && (bottle < 13)) {
+    if ((bottle >= 0) && (bottle < 14)) {
         return bottle;
     } else {
         return -1;
@@ -1607,6 +1607,7 @@ Color_RGB8 sBottleColors[] = {
     { 80, 80, 255 },   // Fish
     { 255, 100, 255 }, // Fire
     { 0, 0, 255 },     // Bug
+		{ 224, 156, 27},	 // Honey
     { 255, 0, 255 },   // Poe
     { 255, 0, 255 },   // Big Poe
     { 200, 200, 100 }, // Letter

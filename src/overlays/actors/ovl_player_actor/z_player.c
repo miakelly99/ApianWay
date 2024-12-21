@@ -6090,12 +6090,13 @@ s32 Player_ActionHandler_13(Player* this, PlayState* play) {
                 }
 
                 sp2C = Player_ActionToBottle(this, this->itemAction);
+								PRINTF("sp2c = %d\nitemAction = %d\nbottle action = %d", sp2C, this->itemAction, PLAYER_IA_BOTTLE);
                 if (sp2C >= 0) {
                     if (sp2C == 0xC) {
                         Player_SetupActionPreserveItemAction(play, this, Player_Action_8084EED8, 0);
                         Player_AnimPlayOnceAdjusted(play, this, &gPlayerAnim_link_bottle_bug_out);
                         func_80835EA4(play, 3);
-                    } else if ((sp2C > 0) && (sp2C < 4)) {
+                    } else if (((sp2C > 0) && (sp2C < 5))) {
                         Player_SetupActionPreserveItemAction(play, this, Player_Action_8084EFC0, 0);
                         Player_AnimPlayOnceAdjusted(play, this, &gPlayerAnim_link_bottle_fish_out);
                         func_80835EA4(play, (sp2C == 1) ? 1 : 5);
@@ -14128,6 +14129,7 @@ static BottleDropInfo D_80854A28[] = {
     { ACTOR_EN_FISH, FISH_DROPPED },
     { ACTOR_EN_ICE_HONO, 0 },
     { ACTOR_EN_INSECT, INSECT_TYPE_FIRST_DROPPED },
+		{ ACTOR_EN_INSECT, INSECT_TYPE_FIRST_DROPPED }
 };
 
 static AnimSfxEntry D_80854A34[] = {
