@@ -31,7 +31,7 @@ typedef struct GetItemEntry {
     /* 0x00 */ u8 itemId;
     /* 0x01 */ u8 field; // various bit-packed data
     /* 0x02 */ s8 gi;    // defines the draw id and chest opening animation
-    /* 0x03 */ u8 textId;
+    /* 0x03 */ u16 textId;
     /* 0x04 */ u16 objectId;
 } GetItemEntry; // size = 0x06
 
@@ -757,7 +757,7 @@ static GetItemEntry sGetItemTable[] = {
 		// GI_BULLET_BAG_50
     GET_ITEM(ITEM_BULLET_BAG_50, OBJECT_GI_DEKUPOUCH, GID_BULLET_BAG_50, 0x6C, 0x80, CHEST_ANIM_LONG),
 		// GI_KINDLING_PACK
-		GET_ITEM(ITEM_KINDLING_PACK, OBJECT_GI_KINDLING_PACK, GID_KINDLING_PACK, 0x6C, 0x00, CHEST_ANIM_LONG),
+		GET_ITEM(ITEM_KINDLING_PACK, OBJECT_GI_KINDLING_PACK, GID_KINDLING_PACK, 0x71B3, 0x00, CHEST_ANIM_LONG),
 		// GI_ICE_TRAP
     GET_ITEM_NONE,
     // GI_TEXT_0

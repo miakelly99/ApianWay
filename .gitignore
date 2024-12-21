@@ -26,6 +26,10 @@ ctx.c
 tools/*dSYM/
 graphs/
 
+# Assets
+
+assets/textures/icon_item_static/*.png
+
 # Per-user configuration
 # If you want to use your own gitignore rules without modifying this file:
 # - use `git config core.excludesFile path/to/my_gitignore_file`

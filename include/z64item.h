@@ -241,6 +241,8 @@ typedef enum ItemID {
     /* 0x56 */ ITEM_ADULTS_WALLET,
     /* 0x57 */ ITEM_GIANTS_WALLET,
     /* 0x58 */ ITEM_DEKU_SEEDS,
+							 // ADD NEW ITEMS HERE
+							 ITEM_KINDLING_PACK,
     /* 0x59 */ ITEM_FISHING_POLE,
     /* 0x5A */ ITEM_SONG_MINUET,
     /* 0x5B */ ITEM_SONG_BOLERO,
@@ -307,10 +309,7 @@ typedef enum ItemID {
     /* 0x98 */ ITEM_DEKU_STICK_UPGRADE_20,
     /* 0x99 */ ITEM_DEKU_STICK_UPGRADE_30,
     /* 0x9A */ ITEM_DEKU_NUT_UPGRADE_30,
-    /* 0x9B */ ITEM_DEKU_NUT_UPGRADE_40,
-							 ITEM_KINDLING_PACK,
-
-							 
+    /* 0x9B */ ITEM_DEKU_NUT_UPGRADE_40,						 
     /* 0xFC */ ITEM_SWORD_CS = 0xFC,				 
     /* 0xFE */ ITEM_NONE_FE = 0xFE,
     /* 0xFF */ ITEM_NONE = 0xFF

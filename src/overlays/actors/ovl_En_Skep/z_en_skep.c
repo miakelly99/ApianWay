@@ -67,7 +67,5 @@ bool EnSkep_IsPlayerFacing(EnSkep* this, PlayState* play)
 	playerFacing.y = Math_CosS(angle);
 
 	float dot = vecToSkep.x * playerFacing.x + vecToSkep.y * playerFacing.y;
-
-	PRINTF("%f, %f, %f, %f, %f\n", vecToSkep.x, vecToSkep.y, playerFacing.x, playerFacing.y, dot);
 	return dot > 0;
 }
