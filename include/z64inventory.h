@@ -20,7 +20,7 @@ extern u8 gUpgradeShifts[UPG_MAX];
 extern u16 gUpgradeCapacities[UPG_MAX][4];
 extern u32 gGsFlagsMasks[4];
 extern u32 gGsFlagsShifts[4];
-extern void* gItemIcons[0x83];
-extern u8 gItemSlots[57];
+extern void* gItemIcons[0x85];
+extern u8 gItemSlots[58];
 
 #endif

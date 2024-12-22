@@ -25,6 +25,18 @@ MSG(/* MISSING */)
 MSG(/* MISSING */)
 )
 
+DEFINE_MESSAGE(0x71B5, TEXTBOX_TYPE_BLACK, TEXTBOX_POS_BOTTOM,
+MSG(/* MISSING */)
+,
+MSG(
+	UNSKIPPABLE ITEM_ICON(ITEM_SMOKER) "You got " COLOR(RED) "a Bee Smoker" COLOR(DEFAULT) "!"
+)
+,
+MSG(/* MISSING */)
+,
+MSG(/* MISSING */)
+)
+
 /*
  * The following two messages should be kept last and in this order.
  * Message 0xFFFD must be last to not break the message debugger (see R_MESSAGE_DEBUGGER_TEXTID).

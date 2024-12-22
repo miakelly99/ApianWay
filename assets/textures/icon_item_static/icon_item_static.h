@@ -58,6 +58,8 @@ extern u64 gItemIconPrescriptionTex[];
 extern u64 gItemIconEyeballFrogTex[];
 extern u64 gItemIconEyeDropsTex[];
 extern u64 gItemIconClaimCheckTex[];
+// Add new inventory icons here
+extern u64 gItemIconSmokerTex[];
 extern u64 gItemIconBowFireTex[];
 extern u64 gItemIconBowIceTex[];
 extern u64 gItemIconBowLightTex[];
@@ -92,8 +94,8 @@ extern u64 gItemIconAdultsWalletTex[];
 extern u64 gItemIconGiantsWalletTex[];
 extern u64 gItemIconDekuSeedsTex[];
 extern u64 gItemIconFishingPoleTex[];
-// ADD NEW ITEM ICONS HERE
-extern u64 gItemIconKindlingPack[];
+// ADD NEW non-inventory ITEM ICONS HERE
+extern u64 gItemIconKindlingPackTex[];
 extern u64 gHeartPieceIcon1Tex[];
 extern u64 gHeartPieceIcon2Tex[];
 extern u64 gHeartPieceIcon3Tex[];

@@ -169,6 +169,8 @@ void* gItemIcons[] = {
     gItemIconAdultsWalletTex,      // ITEM_ADULTS_WALLET
     gItemIconGiantsWalletTex,      // ITEM_GIANTS_WALLET
     gItemIconDekuSeedsTex,         // ITEM_DEKU_SEEDS
+		gItemIconKindlingPackTex,			 // ITEM_KINDLING_PACK
+		gItemIconSmokerTex,						 // ITEM_SMOKER
     gItemIconFishingPoleTex,       // ITEM_FISHING_POLE
     // icon_item_static 16x24 ia8
     gSongNoteTex, // ITEM_SONG_MINUET
@@ -275,6 +277,7 @@ u8 gItemSlots[] = {
     SLOT_TRADE_ADULT,   // ITEM_EYEBALL_FROG
     SLOT_TRADE_ADULT,   // ITEM_EYE_DROPS
     SLOT_TRADE_ADULT,   // ITEM_CLAIM_CHECK
+		SLOT_NAYRUS_LOVE,		// ITEM_SMOKER
 };
 
 void Inventory_ChangeEquipment(s16 equipment, u16 value) {
