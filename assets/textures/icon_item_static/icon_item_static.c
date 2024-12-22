@@ -235,6 +235,10 @@ u64 gItemIconClaimCheckTex[] = {
 
 // Add new inventory items here
 
+u64 gItemIconKindlingPackTex[] = {
+#include "assets/textures/icon_item_static/custom_icons/item_icon_kindling_pack.rgba32.inc.c"
+};
+
 u64 gItemIconSmokerTex[] = {
 #include "assets/textures/icon_item_static/custom_icons/item_icon_smoker.rgba32.inc.c"
 };
@@ -369,10 +373,6 @@ u64 gItemIconGiantsWalletTex[] = {
 
 u64 gItemIconDekuSeedsTex[] = {
 #include "assets/textures/icon_item_static/deku_seeds_icon.rgba32.inc.c"
-};
-
-u64 gItemIconKindlingPackTex[] = {
-#include "assets/textures/icon_item_static/custom_icons/item_icon_kindling_pack.rgba32.inc.c"
 };
 
 u64 gItemIconFishingPoleTex[] = {

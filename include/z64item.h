@@ -209,7 +209,8 @@ typedef enum ItemID {
     /* 0x35 */ ITEM_EYEBALL_FROG,
     /* 0x36 */ ITEM_EYE_DROPS,
     /* 0x37 */ ITEM_CLAIM_CHECK,
-							 // Add new inventory items here
+							 // Add new GI items here
+							 ITEM_KINDLING_PACK,
 							 ITEM_SMOKER,
     /* 0x38 */ ITEM_BOW_FIRE,
     /* 0x39 */ ITEM_BOW_ICE,
@@ -244,8 +245,6 @@ typedef enum ItemID {
     /* 0x56 */ ITEM_ADULTS_WALLET,
     /* 0x57 */ ITEM_GIANTS_WALLET,
     /* 0x58 */ ITEM_DEKU_SEEDS,
-							 // ADD NEW non-inventory ITEMS HERE
-							 ITEM_KINDLING_PACK,
     /* 0x59 */ ITEM_FISHING_POLE,
     /* 0x5A */ ITEM_SONG_MINUET,
     /* 0x5B */ ITEM_SONG_BOLERO,

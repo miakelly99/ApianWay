@@ -1855,7 +1855,7 @@ u8 Item_Give(PlayState* play, u8 item) {
 			gSaveContext.save.info.playerData.isMagicAcquired = true;
 			return ITEM_NONE;
 		} else if (item == ITEM_SMOKER) {
-			gSaveContext.save.info.playerData.isMagicAcquired = true;
+			gSaveContext.save.info.inventory.items[slot] = item;
 			return ITEM_NONE;
 		}
 
