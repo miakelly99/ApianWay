@@ -1333,6 +1333,8 @@ static s8 sItemActions[] = {
     PLAYER_IA_FROG,                // ITEM_EYEBALL_FROG
     PLAYER_IA_EYEDROPS,            // ITEM_EYE_DROPS
     PLAYER_IA_CLAIM_CHECK,         // ITEM_CLAIM_CHECK
+		PLAYER_IA_NONE,								 // ITEM_KINDLING_PACK
+		PLAYER_IA_SMOKER,							 // ITEM_SMOKER
     PLAYER_IA_BOW_FIRE,            // ITEM_BOW_FIRE
     PLAYER_IA_BOW_ICE,             // ITEM_BOW_ICE
     PLAYER_IA_BOW_LIGHT,           // ITEM_BOW_LIGHT
@@ -1399,7 +1401,8 @@ static s32 (*sItemActionUpdateFuncs[])(Player* this, PlayState* play) = {
     func_8083485C,                 // PLAYER_IA_PRESCRIPTION
     func_8083485C,                 // PLAYER_IA_FROG
     func_8083485C,                 // PLAYER_IA_EYEDROPS
-    func_8083485C,                 // PLAYER_IA_CLAIM_CHECK
+    func_8083485C,                 // PLAYER_IA_CLAIM_CHECK,
+		func_8083485C,								 // PLAYER_IA_SMOKER 
     func_8083485C,                 // PLAYER_IA_MASK_KEATON
     func_8083485C,                 // PLAYER_IA_MASK_SKULL
     func_8083485C,                 // PLAYER_IA_MASK_SPOOKY
@@ -1469,7 +1472,8 @@ static void (*sItemActionInitFuncs[])(PlayState* play, Player* this) = {
     Player_InitDefaultIA,        // PLAYER_IA_PRESCRIPTION
     Player_InitDefaultIA,        // PLAYER_IA_FROG
     Player_InitDefaultIA,        // PLAYER_IA_EYEDROPS
-    Player_InitDefaultIA,        // PLAYER_IA_CLAIM_CHECK
+    Player_InitDefaultIA,        // PLAYER_IA_CLAIM_CHECK,
+		Player_InitDefaultIA,				 // PLAYER_IA_SMOKER
     Player_InitDefaultIA,        // PLAYER_IA_MASK_KEATON
     Player_InitDefaultIA,        // PLAYER_IA_MASK_SKULL
     Player_InitDefaultIA,        // PLAYER_IA_MASK_SPOOKY
@@ -2355,6 +2359,7 @@ void Player_InitItemActionWithAnim(PlayState* play, Player* this, s8 itemAction)
 }
 
 s8 Player_ItemToItemAction(s32 item) {
+		PRINTF("item id = %d\n", item);
     if (item >= ITEM_NONE_FE) {
         return PLAYER_IA_NONE;
     } else if (item == ITEM_SWORD_CS) {
@@ -2362,6 +2367,7 @@ s8 Player_ItemToItemAction(s32 item) {
     } else if (item == ITEM_FISHING_POLE) {
         return PLAYER_IA_FISHING_POLE;
     } else {
+				PRINTF("item action id = %d\n", sItemActions[item]);
         return sItemActions[item];
     }
 }
@@ -3504,6 +3510,8 @@ void Player_UseItem(PlayState* play, Player* this, s32 item) {
     s32 temp;
     s32 nextAnimType;
 
+		PRINTF("item in useitem = %d\n", item);
+
     itemAction = Player_ItemToItemAction(item);
 
     if (((this->heldItemAction == this->itemAction) &&
@@ -3544,7 +3552,8 @@ void Player_UseItem(PlayState* play, Player* this, s32 item) {
                 } else {
                     Sfx_PlaySfxCentered(NA_SE_SY_ERROR);
                 }
-            } else if ((temp = Player_ActionToMagicSpell(this, itemAction)) >= 0) {
+            }
+						else if ((temp = Player_ActionToMagicSpell(this, itemAction)) >= 0) {
                 // Handle magic spells
                 if (((itemAction == PLAYER_IA_FARORES_WIND) && (gSaveContext.respawn[RESPAWN_MODE_TOP].data > 0)) ||
                     ((gSaveContext.magicCapacity != 0) && (gSaveContext.magicState == MAGIC_STATE_IDLE) &&
@@ -12238,12 +12247,13 @@ void Player_Draw(Actor* thisx, PlayState* play2) {
         s32 lod;
         s32 pad;
 
-        if ((this->csAction != PLAYER_CSACTION_NONE) || (Player_CheckHostileLockOn(this) && 0) ||
+        /*if ((this->csAction != PLAYER_CSACTION_NONE) || (Player_CheckHostileLockOn(this) && 0) ||
             (this->actor.projectedPos.z < 160.0f)) {
             lod = 0;
         } else {
             lod = 1;
-        }
+        }*/
+			 	lod = 0;
 
         func_80093C80(play);
         Gfx_SetupDL_25Xlu(play->state.gfxCtx);

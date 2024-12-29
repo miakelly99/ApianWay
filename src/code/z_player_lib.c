@@ -166,6 +166,7 @@ u8 sActionModelGroups[PLAYER_IA_MAX] = {
     PLAYER_MODELGROUP_DEFAULT,          // PLAYER_IA_NAYRUS_LOVE
     PLAYER_MODELGROUP_DEFAULT,          // PLAYER_IA_DINS_FIRE
     PLAYER_MODELGROUP_DEFAULT,          // PLAYER_IA_DEKU_NUT
+		PLAYER_MODELGROUP_SMOKER,					// PLAYER_IA_SMOKER
     PLAYER_MODELGROUP_OCARINA,          // PLAYER_IA_OCARINA_FAIRY
     PLAYER_MODELGROUP_OOT,              // PLAYER_IA_OCARINA_OF_TIME
     PLAYER_MODELGROUP_BOTTLE,           // PLAYER_IA_BOTTLE
@@ -270,6 +271,9 @@ u8 gPlayerModelTypes[PLAYER_MODELGROUP_MAX][PLAYER_MODELGROUPENTRY_MAX] = {
     /* PLAYER_MODELGROUP_SWORD */
     { PLAYER_ANIMTYPE_0, PLAYER_MODELTYPE_LH_SWORD, PLAYER_MODELTYPE_RH_OPEN, PLAYER_MODELTYPE_SHEATH_19,
       PLAYER_MODELTYPE_WAIST },
+		/* PLAYER_MODELGROUP_SMOKER */
+		{ PLAYER_ANIMTYPE_0, PLAYER_MODELTYPE_LH_SMOKER, PLAYER_MODELTYPE_RH_OPEN, PLAYER_MODELTYPE_SHEATH_18,
+		  PLAYER_MODELTYPE_WAIST }
 };
 
 Gfx* sPlayerRightHandShieldDLs[PLAYER_SHIELD_MAX * 4] = {
@@ -495,6 +499,13 @@ Gfx* sPlayerLeftHandBottleDLs[] = {
     gLinkChildLeftHandUpNearDL,
 };
 
+Gfx* sPlayerLeftHandSmokerDLs[] = {
+	gLinkAdultRightHandHoldingOotNearDL,
+	gLinkChildRightHandHoldingFairyOcarinaNearDL,
+	gLinkAdultRightHandHoldingOotFarDL,
+	gLinkChildRightHandHoldingFairyOcarinaFarDL,
+};
+
 Gfx* sFirstPersonLeftForearmDLs[] = {
     gLinkAdultRightArmOutNearDL,
     NULL,
@@ -529,7 +540,8 @@ Gfx** sPlayerDListGroups[PLAYER_MODELTYPE_MAX] = {
     gPlayerLeftHandBgsDLs,            // PLAYER_MODELTYPE_LH_BGS
     sPlayerLeftHandHammerDLs,         // PLAYER_MODELTYPE_LH_HAMMER
     gPlayerLeftHandBoomerangDLs,      // PLAYER_MODELTYPE_LH_BOOMERANG
-    sPlayerLeftHandBottleDLs,         // PLAYER_MODELTYPE_LH_BOTTLE
+    sPlayerLeftHandBottleDLs,         // PLAYER_MODELTYPE_LH_BOTTLE,
+		sPlayerLeftHandSmokerDLs,					// PLAYER_MODELTYPE_LH_SMOKER
     sPlayerRightHandOpenDLs,          // PLAYER_MODELTYPE_RH_OPEN
     sPlayerRightHandClosedDLs,        // PLAYER_MODELTYPE_RH_CLOSED
     sPlayerRightHandShieldDLs,        // PLAYER_MODELTYPE_RH_SHIELD
@@ -634,6 +646,7 @@ int Player_IsChildWithHylianShield(Player* this) {
 }
 
 s32 Player_ActionToModelGroup(Player* this, s32 itemAction) {
+	  PRINTF("itemAction in ActionToModelGroup = %d\n", itemAction);
     s32 modelGroup = sActionModelGroups[itemAction];
 
     if ((modelGroup == PLAYER_MODELGROUP_SWORD_AND_SHIELD) && Player_IsChildWithHylianShield(this)) {
