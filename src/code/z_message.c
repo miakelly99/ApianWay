@@ -965,8 +965,6 @@ u16 Message_DrawItemIcon(PlayState* play, u16 itemId, Gfx** p, u16 i) {
     Gfx* gfx = *p;
     MessageContext* msgCtx = &play->msgCtx;
 
-		PRINTF("item id = %d", itemId);
-
     // clang-format off
     if (msgCtx->msgMode == MSGMODE_TEXT_DISPLAYING) { \
         Audio_PlaySfxGeneral(NA_SE_NONE, &gSfxDefaultPos, 4, &gSfxDefaultFreqAndVolScale, &gSfxDefaultFreqAndVolScale,

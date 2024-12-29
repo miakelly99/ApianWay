@@ -132,6 +132,7 @@ void Player_InitDekuStickIA(PlayState* play, Player* this);
 void Player_InitExplosiveIA(PlayState* play, Player* this);
 void Player_InitHookshotIA(PlayState* play, Player* this);
 void Player_InitBoomerangIA(PlayState* play, Player* this);
+void Player_InitSmokerIA(PlayState* player, Player* this);
 
 s32 Player_UpperAction_ChangeHeldItem(Player* this, PlayState* play);
 s32 func_8083485C(Player* this, PlayState* play);
@@ -149,6 +150,7 @@ s32 func_808358F0(Player* this, PlayState* play);
 s32 func_808359FC(Player* this, PlayState* play);
 s32 func_80835B60(Player* this, PlayState* play);
 s32 func_80835C08(Player* this, PlayState* play);
+s32 Player_Smoker_Update(Player* this, PlayState* play);
 
 void Player_UseItem(PlayState* play, Player* this, s32 item);
 void func_80839F90(Player* this, PlayState* play);
@@ -1372,6 +1374,7 @@ static s32 (*sItemActionUpdateFuncs[])(Player* this, PlayState* play) = {
     func_8083485C,                 // PLAYER_IA_NAYRUS_LOVE
     func_8083485C,                 // PLAYER_IA_DINS_FIRE
     func_8083485C,                 // PLAYER_IA_DEKU_NUT
+		Player_Smoker_Update,								 // PLAYER_IA_SMOKER 
     func_8083485C,                 // PLAYER_IA_OCARINA_FAIRY
     func_8083485C,                 // PLAYER_IA_OCARINA_OF_TIME
     func_8083485C,                 // PLAYER_IA_BOTTLE
@@ -1402,7 +1405,6 @@ static s32 (*sItemActionUpdateFuncs[])(Player* this, PlayState* play) = {
     func_8083485C,                 // PLAYER_IA_FROG
     func_8083485C,                 // PLAYER_IA_EYEDROPS
     func_8083485C,                 // PLAYER_IA_CLAIM_CHECK,
-		func_8083485C,								 // PLAYER_IA_SMOKER 
     func_8083485C,                 // PLAYER_IA_MASK_KEATON
     func_8083485C,                 // PLAYER_IA_MASK_SKULL
     func_8083485C,                 // PLAYER_IA_MASK_SPOOKY
@@ -1443,6 +1445,7 @@ static void (*sItemActionInitFuncs[])(PlayState* play, Player* this) = {
     Player_InitDefaultIA,        // PLAYER_IA_NAYRUS_LOVE
     Player_InitDefaultIA,        // PLAYER_IA_DINS_FIRE
     Player_InitDefaultIA,        // PLAYER_IA_DEKU_NUT
+		Player_InitSmokerIA,				 // PLAYER_IA_SMOKER
     Player_InitDefaultIA,        // PLAYER_IA_OCARINA_FAIRY
     Player_InitDefaultIA,        // PLAYER_IA_OCARINA_OF_TIME
     Player_InitDefaultIA,        // PLAYER_IA_BOTTLE
@@ -1473,7 +1476,6 @@ static void (*sItemActionInitFuncs[])(PlayState* play, Player* this) = {
     Player_InitDefaultIA,        // PLAYER_IA_FROG
     Player_InitDefaultIA,        // PLAYER_IA_EYEDROPS
     Player_InitDefaultIA,        // PLAYER_IA_CLAIM_CHECK,
-		Player_InitDefaultIA,				 // PLAYER_IA_SMOKER
     Player_InitDefaultIA,        // PLAYER_IA_MASK_KEATON
     Player_InitDefaultIA,        // PLAYER_IA_MASK_SKULL
     Player_InitDefaultIA,        // PLAYER_IA_MASK_SPOOKY
@@ -2359,7 +2361,6 @@ void Player_InitItemActionWithAnim(PlayState* play, Player* this, s8 itemAction)
 }
 
 s8 Player_ItemToItemAction(s32 item) {
-		PRINTF("item id = %d\n", item);
     if (item >= ITEM_NONE_FE) {
         return PLAYER_IA_NONE;
     } else if (item == ITEM_SWORD_CS) {
@@ -2367,7 +2368,6 @@ s8 Player_ItemToItemAction(s32 item) {
     } else if (item == ITEM_FISHING_POLE) {
         return PLAYER_IA_FISHING_POLE;
     } else {
-				PRINTF("item action id = %d\n", sItemActions[item]);
         return sItemActions[item];
     }
 }
@@ -2447,7 +2447,12 @@ void Player_InitBoomerangIA(PlayState* play, Player* this) {
     this->stateFlags1 |= PLAYER_STATE1_USING_BOOMERANG;
 }
 
+void Player_InitSmokerIA(PlayState* play, Player* this) {
+	PRINTF("SMOKER IA INIT\n");
+}
+
 void Player_InitItemAction(PlayState* play, Player* this, s8 itemAction) {
+		PRINTF("PLAYER INIT ITEM ACTION RUNNING\n");
     this->unk_85C = 0.0f;
     this->unk_858 = 0.0f;
     this->unk_860 = 0;
@@ -3398,6 +3403,11 @@ s32 func_80835C08(Player* this, PlayState* play) {
     return true;
 }
 
+s32 Player_Smoker_Update(Player* this, PlayState* play) {
+		PRINTF("SMOKER IA UPDATE\n");
+		return true;
+}
+
 s32 Player_SetupAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 flags) {
     if (actionFunc == this->actionFunc) {
         return 0;
@@ -3510,7 +3520,7 @@ void Player_UseItem(PlayState* play, Player* this, s32 item) {
     s32 temp;
     s32 nextAnimType;
 
-		PRINTF("item in useitem = %d\n", item);
+		//PRINTF("item in use = %d\n", item);
 
     itemAction = Player_ItemToItemAction(item);
 
