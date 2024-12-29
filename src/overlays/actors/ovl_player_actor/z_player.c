@@ -3405,7 +3405,11 @@ s32 func_80835C08(Player* this, PlayState* play) {
 
 s32 Player_Smoker_Update(Player* this, PlayState* play) {
 		PRINTF("SMOKER IA UPDATE, %d\n", sUseHeldItem);
-		return true;
+        if (sUseHeldItem)
+        {
+            
+        }
+		return false;
 }
 
 s32 Player_SetupAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 flags) {

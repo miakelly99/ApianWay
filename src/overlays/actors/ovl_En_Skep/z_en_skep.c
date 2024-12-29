@@ -45,7 +45,7 @@ void EnSkep_Update(Actor* thisx, PlayState* play) {
 
 	if (EnSkep_IsPlayerFacing(this, play))
 	{
-		Actor_OfferGetItem(&this->dyna.actor, play, GI_MAX, 30.0f, 30.0f);
+		Actor_OfferGetItemNearby(&this->dyna.actor, play, GI_MAX);
 	}
 }
 

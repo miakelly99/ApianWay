@@ -55,7 +55,7 @@ N64_EMULATOR ?=
 # This may also be used to disable debug features on debug ROMs by setting DEBUG_FEATURES to 0
 DEBUG_FEATURES ?= 1
 
-CFLAGS ?=
+CFLAGS ?= -std=gnu17
 CPPFLAGS ?=
 CPP_DEFINES ?=
 
@@ -569,7 +569,7 @@ ifneq ($(COMPARE),0)
 	@md5sum -c $(BASEROM_DIR)/checksum.md5
  endif
 endif
-	cp $(ROM) /mnt/c/Users/benja/Documents/RomHacking/
+  cp $(ROM) /mnt/c/Users/benja/Documents/RomHacking/
 
 compress: $(ROMC)
 ifneq ($(COMPARE),0)
