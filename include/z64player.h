@@ -358,7 +358,6 @@ typedef enum PlayerModelType {
     /* 0x05 */ PLAYER_MODELTYPE_LH_HAMMER, // holding hammer (child: empty hand)
     /* 0x06 */ PLAYER_MODELTYPE_LH_BOOMERANG, // holding boomerang (adult: empty hand)
     /* 0x07 */ PLAYER_MODELTYPE_LH_BOTTLE, // holding bottle (bottle drawn separately)
-						   PLAYER_MODELTYPE_LH_SMOKER,
     // right hand
     /* 0x08 */ PLAYER_MODELTYPE_RH_OPEN, // empty open hand
     /* 0x09 */ PLAYER_MODELTYPE_RH_CLOSED, // empty closed hand
@@ -368,6 +367,7 @@ typedef enum PlayerModelType {
     /* 0x0D */ PLAYER_MODELTYPE_RH_OCARINA, // holding ocarina (child: fairy ocarina, adult: OoT)
     /* 0x0E */ PLAYER_MODELTYPE_RH_OOT, // holding OoT
     /* 0x0F */ PLAYER_MODELTYPE_RH_HOOKSHOT, // holding hookshot (child: empty hand)
+							 PLAYER_MODELTYPE_RH_SMOKER,
     // sheath
     /* 0x10 */ PLAYER_MODELTYPE_SHEATH_16, // sheathed kokiri/master sword?
     /* 0x11 */ PLAYER_MODELTYPE_SHEATH_17, // empty sheath?

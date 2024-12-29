@@ -272,7 +272,7 @@ u8 gPlayerModelTypes[PLAYER_MODELGROUP_MAX][PLAYER_MODELGROUPENTRY_MAX] = {
     { PLAYER_ANIMTYPE_0, PLAYER_MODELTYPE_LH_SWORD, PLAYER_MODELTYPE_RH_OPEN, PLAYER_MODELTYPE_SHEATH_19,
       PLAYER_MODELTYPE_WAIST },
 		/* PLAYER_MODELGROUP_SMOKER */
-		{ PLAYER_ANIMTYPE_0, PLAYER_MODELTYPE_LH_SMOKER, PLAYER_MODELTYPE_RH_OPEN, PLAYER_MODELTYPE_SHEATH_18,
+		{ PLAYER_ANIMTYPE_0, PLAYER_MODELTYPE_LH_CLOSED, PLAYER_MODELTYPE_RH_SMOKER, PLAYER_MODELTYPE_SHEATH_18,
 		  PLAYER_MODELTYPE_WAIST }
 };
 
@@ -499,7 +499,7 @@ Gfx* sPlayerLeftHandBottleDLs[] = {
     gLinkChildLeftHandUpNearDL,
 };
 
-Gfx* sPlayerLeftHandSmokerDLs[] = {
+Gfx* sPlayerRightHandSmokerDLs[] = {
 	gLinkAdultRightHandHoldingOotNearDL,
 	gLinkChildRightHandHoldingFairyOcarinaNearDL,
 	gLinkAdultRightHandHoldingOotFarDL,
@@ -541,7 +541,6 @@ Gfx** sPlayerDListGroups[PLAYER_MODELTYPE_MAX] = {
     sPlayerLeftHandHammerDLs,         // PLAYER_MODELTYPE_LH_HAMMER
     gPlayerLeftHandBoomerangDLs,      // PLAYER_MODELTYPE_LH_BOOMERANG
     sPlayerLeftHandBottleDLs,         // PLAYER_MODELTYPE_LH_BOTTLE,
-		sPlayerLeftHandSmokerDLs,					// PLAYER_MODELTYPE_LH_SMOKER
     sPlayerRightHandOpenDLs,          // PLAYER_MODELTYPE_RH_OPEN
     sPlayerRightHandClosedDLs,        // PLAYER_MODELTYPE_RH_CLOSED
     sPlayerRightHandShieldDLs,        // PLAYER_MODELTYPE_RH_SHIELD
@@ -550,6 +549,7 @@ Gfx** sPlayerDListGroups[PLAYER_MODELTYPE_MAX] = {
     sPlayerRightHandOcarinaDLs,       // PLAYER_MODELTYPE_RH_OCARINA
     sPlayerRightHandOotDLs,           // PLAYER_MODELTYPE_RH_OOT
     sPlayerRightHandHookshotDLs,      // PLAYER_MODELTYPE_RH_HOOKSHOT
+		sPlayerRightHandSmokerDLs,				// PLAYER_MODELTYPE_LH_SMOKER
     D_80125E78,                       // PLAYER_MODELTYPE_SHEATH_16
     D_80125E88,                       // PLAYER_MODELTYPE_SHEATH_17
     D_80125D28,                       // PLAYER_MODELTYPE_SHEATH_18
