@@ -6,6 +6,7 @@
 
 typedef struct EnSkep {
 	DynaPolyActor dyna;
+	u16 vulnerable_timer;
 } EnSkep;
 
 #endif

@@ -32,6 +32,7 @@ void EnSkep_Init(Actor* thisx, PlayState* play) {
 	CollisionHeader_GetVirtual(&gEnSkepCollision_collisionHeader, &colHeader);
 	
 	this->dyna.bgId = DynaPoly_SetBgActor(play, &play->colCtx.dyna, &this->dyna.actor, colHeader);
+	this->vulnerable_timer = 0;
 }
 
 void EnSkep_Destroy(Actor* thisx, PlayState* play) {
@@ -43,9 +44,16 @@ void EnSkep_Destroy(Actor* thisx, PlayState* play) {
 void EnSkep_Update(Actor* thisx, PlayState* play) {
 	EnSkep* this = (EnSkep*)thisx;
 
-	if (EnSkep_IsPlayerFacing(this, play))
+	// Offer honey if player is facing skep and vulerable timer is running.
+	if (EnSkep_IsPlayerFacing(this, play) && this->vulnerable_timer > 0)
 	{
 		Actor_OfferGetItemNearby(&this->dyna.actor, play, GI_MAX);
+	}
+
+	// Decrease timer for honey gathering
+	if (this->vulnerable_timer > 0)
+	{
+		this->vulnerable_timer--;
 	}
 }
 
