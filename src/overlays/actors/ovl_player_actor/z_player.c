@@ -3407,7 +3407,8 @@ s32 Player_Smoker_Update(Player* this, PlayState* play) {
 		PRINTF("SMOKER IA UPDATE, %d\n", sUseHeldItem);
         if (sUseHeldItem)
         {
-            
+            Actor* spawnedActor = Actor_Spawn(&play->actorCtx, play, ACTOR_SMOKE_CLOUD, this->actor.world.pos.x, this->actor.world.pos.y, this->actor.world.pos.z, 0, 0, 0, 0);
+            Actor_Kill(spawnedActor);
         }
 		return false;
 }
