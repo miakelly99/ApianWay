@@ -24,6 +24,7 @@ extern SceneCmd testing_scene_room_0_header00[];
 extern s16 testing_scene_room_0_header00_objectList[];
 extern ActorEntry testing_scene_room_0_header00_actorList[];
 extern Gfx testing_scene_room_0_shapeHeader_entry_0_opaque[];
+extern u64 testing_scene_room_0_dl_ground_texture_rgba32[];
 extern Vtx testing_scene_room_0_dl_Ceiling_mesh_layer_Opaque_vtx_cull[8];
 extern Vtx testing_scene_room_0_dl_Ceiling_mesh_layer_Opaque_vtx_0[4];
 extern Gfx testing_scene_room_0_dl_Ceiling_mesh_layer_Opaque_tri_0[];

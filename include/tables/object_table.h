@@ -412,4 +412,3 @@
 						 DEFINE_OBJECT(object_gi_kindling_pack, OBJECT_GI_KINDLING_PACK)
 						 DEFINE_OBJECT(object_en_skep, OBJECT_EN_SKEP)
 						 DEFINE_OBJECT(object_gi_smoker, OBJECT_GI_SMOKER)
-					     DEFINE_OBJECT(object_smoke_cloud, OBJECT_SMOKE_CLOUD)

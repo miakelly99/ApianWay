@@ -1853,7 +1853,6 @@ u8 Item_Give(PlayState* play, u8 item) {
         return ITEM_NONE;
     } else if (item == ITEM_KINDLING_PACK) {
 			gSaveContext.save.info.playerData.isMagicAcquired = true;
-            gSaveContext.magicFillTarget = MAGIC_NORMAL_METER;
 			return ITEM_NONE;
 		} else if (item == ITEM_SMOKER) {
 			gSaveContext.save.info.inventory.items[slot] = item;

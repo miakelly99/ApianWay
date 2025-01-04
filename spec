@@ -7589,13 +7589,6 @@ beginseg
     include "$(BUILD_DIR)/src/overlays/actors/ovl_En_Skep/ovl_En_Skep_reloc.o"
 endseg
 
-beginseg
-    name "ovl_Smoke_Cloud"
-    compress
-    include "$(BUILD_DIR)/src/overlays/actors/ovl_Smoke_Cloud/z_smoke_cloud.o"
-    include "$(BUILD_DIR)/src/overlays/actors/ovl_Smoke_Cloud/ovl_Smoke_Cloud_reloc.o"
-endseg
-
 #endif
 
 beginseg
@@ -10666,15 +10659,7 @@ beginseg
     compress
     romalign 0x1000
     include "$(BUILD_DIR)/assets/objects/object_en_skep/gEnSkepDL.o"
-	include "$(BUILD_DIR)/assets/objects/object_en_skep/gEnSkepCollision_collision.o"
-    number 6
-endseg
-
-beginseg
-    name "object_smoke_cloud"
-    compress
-    romalign 0x1000
-    include "$(BUILD_DIR)/assets/objects/object_smoke_cloud/gSmokeCloudDL.o"
+		include "$(BUILD_DIR)/assets/objects/object_en_skep/gEnSkepCollision_collision.o"
     number 6
 endseg
 
