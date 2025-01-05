@@ -569,7 +569,7 @@ ifneq ($(COMPARE),0)
 	@md5sum -c $(BASEROM_DIR)/checksum.md5
  endif
 endif
-  cp $(ROM) /mnt/c/Users/benja/Documents/RomHacking/
+# cp $(ROM) /mnt/c/Users/benja/Documents/RomHacking/
 
 compress: $(ROMC)
 ifneq ($(COMPARE),0)

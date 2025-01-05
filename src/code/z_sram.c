@@ -729,7 +729,7 @@ void Sram_InitSave(FileSelectState* fileSelect, SramContext* sramCtx) {
 #endif
 
     gSaveContext.save.entranceIndex = ENTR_TESTING_SCENE;
-    gSaveContext.save.linkAge = LINK_AGE_CHILD;
+    gSaveContext.save.linkAge = LINK_AGE_ADULT;
     gSaveContext.save.dayTime = CLOCK_TIME(10, 0);
     gSaveContext.save.cutsceneIndex = 0x0000;
 

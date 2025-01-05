@@ -7589,6 +7589,13 @@ beginseg
     include "$(BUILD_DIR)/src/overlays/actors/ovl_En_Skep/ovl_En_Skep_reloc.o"
 endseg
 
+beginseg
+    name "ovl_Smoke_Cloud"
+    compress
+    include "$(BUILD_DIR)/src/overlays/actors/ovl_Smoke_Cloud/z_smoke_cloud.o"
+    include "$(BUILD_DIR)/src/overlays/actors/ovl_Smoke_Cloud/ovl_Smoke_Cloud_reloc.o"
+endseg
+
 #endif
 
 beginseg

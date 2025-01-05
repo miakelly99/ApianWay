@@ -150,6 +150,7 @@ s32 func_808358F0(Player* this, PlayState* play);
 s32 func_808359FC(Player* this, PlayState* play);
 s32 func_80835B60(Player* this, PlayState* play);
 s32 func_80835C08(Player* this, PlayState* play);
+void Player_Smoke_SpawnSmokeInHand(Player* this, PlayState* play);
 s32 Player_Smoker_Update(Player* this, PlayState* play);
 
 void Player_UseItem(PlayState* play, Player* this, s32 item);
@@ -3403,13 +3404,31 @@ s32 func_80835C08(Player* this, PlayState* play) {
     return true;
 }
 
+void Player_Smoke_SpawnSmokeInHand(Player* this, PlayState* play)
+{
+    Color_RGBA8 primColor = {64, 64, 64, 64};
+    Color_RGBA8 envColor = {64, 64, 64, 64};
+    
+    Vec3f position = this->actor.world.pos;
+    Vec3f velocity = {0.0f, 1.0f, 0.0f};
+    Vec3f acceleration = {0.0f, 0.0f, 0.0f};
+
+    s16 scale = 10;
+    s16 scaleStep = 10;
+    s16 life = 40;
+
+    EffectSsDust_Spawn(play, 0, &position, &velocity, &acceleration, &primColor, &envColor, scale, scaleStep, life, 0);
+}
+
 s32 Player_Smoker_Update(Player* this, PlayState* play) {
-		PRINTF("SMOKER IA UPDATE, %d\n", sUseHeldItem);
-        if (sUseHeldItem)
-        {
-            
-        }
-		return false;
+    //PRINTF("SMOKER IA UPDATE, %d\n", sUseHeldItem);
+    if (sUseHeldItem)
+    {
+        Actor_Spawn(&play->actorCtx, play, ACTOR_SMOKE_CLOUD, this->actor.world.pos.x, this->actor.world.pos.y, this->actor.world.pos.z, 0, 0, 0, 0);
+    }
+
+    Player_Smoke_SpawnSmokeInHand(this, play);
+    return false;
 }
 
 s32 Player_SetupAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 flags) {
