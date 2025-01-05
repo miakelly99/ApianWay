@@ -4,7 +4,7 @@
 #include "assets/objects/object_en_skep/gEnSkepCollision_collision.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
 
-#define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED)
+#define FLAGS (ACTOR_FLAG_UPDATE_CULLING_DISABLED | ACTOR_FLAG_DRAW_CULLING_DISABLED | ACTOR_FLAG_ATTENTION_ENABLED | ACTOR_FLAG_FRIENDLY)
 
 void EnSkep_Init(Actor* thisx, PlayState* play);
 void EnSkep_Destroy(Actor* thisx, PlayState* play);

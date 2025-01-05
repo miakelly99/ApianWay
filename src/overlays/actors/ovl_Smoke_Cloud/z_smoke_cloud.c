@@ -27,6 +27,12 @@ const ActorProfile Smoke_Cloud_Profile = {
 void SmokeCloud_Init(Actor* thisx, PlayState* play) {
 	SmokeCloud* this = (SmokeCloud*)thisx;
     this->despawnTimer = DEFAULT_SMOKECLOUD_LIFESPAN;
+
+		u8 i;
+		for (i = 0; i < SMOKE_CLOUD_PARTICLES; i++)
+		{
+			SmokeCloud_DrawDust(thisx, play);
+		}
 }
 
 void SmokeCloud_Destroy(Actor* thisx, PlayState* play) {
@@ -42,10 +48,6 @@ void SmokeCloud_Update(Actor* thisx, PlayState* play) {
         return;
     }
     this->despawnTimer--;
-    if (this->despawnTimer >= SMOKE_CLOUD_PARTICLE_LIFESPAN)
-    {
-        SmokeCloud_DrawDust(thisx, play);
-    }
 }
 
 void SmokeCloud_Draw(Actor* thisx, PlayState* play) {
@@ -54,15 +56,28 @@ void SmokeCloud_Draw(Actor* thisx, PlayState* play) {
 
 void SmokeCloud_DrawDust(Actor* thisx, PlayState* play)
 {
-    Color_RGBA8 primColor = {64, 64, 64, 64};
+    Color_RGBA8 primColor = {32, 32, 32, 64};
     Color_RGBA8 envColor = {32, 32, 32, 64};
     
-    Vec3f position = thisx->world.pos;
-    Vec3f velocity = {0.0f, 0.0f, 0.0f};
-    Vec3f acceleration = {0.0f, 0.0f, 0.0f};
+    Vec3f rightHandPos = GET_PLAYER(play)->bodyPartsPos[PLAYER_BODYPART_R_HAND];
+		Vec3f position = rightHandPos;
+		
+		position.y = position.y + SMOKE_CLOUD_RIGHT_HAND_OFFSET;
 
-    s16 scale = 100;
-    s16 scaleStep = 10;
+		s16 angle = GET_PLAYER(play)->actor.world.rot.y;
+
+		Vec2f playerFacing;
+		playerFacing.x = Math_SinS(angle);
+		playerFacing.y = Math_CosS(angle);
+		float xz_speed = 5.0f;
+		float xz_acceleration = -0.05f; 
+
+		f32 playerXZSpeed = GET_PLAYER(play)->speedXZ;
+    Vec3f velocity = {playerFacing.x * (xz_speed + playerXZSpeed), 0.2f, playerFacing.y * (xz_speed + playerXZSpeed)};
+    Vec3f acceleration = {playerFacing.x * xz_acceleration, 0.0f, playerFacing.y * xz_acceleration};
+
+    s16 scale = 50;
+    s16 scaleStep = 20;
     s16 life = SMOKE_CLOUD_PARTICLE_LIFESPAN;
 
     EffectSsDust_Spawn(play, 0, &position, &velocity, &acceleration, &primColor, &envColor, scale, scaleStep, life, 0);

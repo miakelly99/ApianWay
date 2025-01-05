@@ -22,6 +22,7 @@
 #include "overlays/effects/ovl_Effect_Ss_Fhg_Flash/z_eff_ss_fhg_flash.h"
 #include "assets/objects/gameplay_keep/gameplay_keep.h"
 #include "assets/objects/object_link_child/object_link_child.h"
+#include "overlays/actors/ovl_Smoke_Cloud/z_smoke_cloud.h"
 
 // Some player animations are played at this reduced speed, for reasons yet unclear.
 // This is called "adjusted" for now.
@@ -2450,6 +2451,7 @@ void Player_InitBoomerangIA(PlayState* play, Player* this) {
 
 void Player_InitSmokerIA(PlayState* play, Player* this) {
 	PRINTF("SMOKER IA INIT\n");
+	this->smokerCooldown = 0;
 }
 
 void Player_InitItemAction(PlayState* play, Player* this, s8 itemAction) {
@@ -3406,29 +3408,54 @@ s32 func_80835C08(Player* this, PlayState* play) {
 
 void Player_Smoke_SpawnSmokeInHand(Player* this, PlayState* play)
 {
-    Color_RGBA8 primColor = {64, 64, 64, 64};
+    Color_RGBA8 primColor = {32, 32, 32, 64};
     Color_RGBA8 envColor = {64, 64, 64, 64};
     
-    Vec3f position = this->actor.world.pos;
-    Vec3f velocity = {0.0f, 1.0f, 0.0f};
-    Vec3f acceleration = {0.0f, 0.0f, 0.0f};
+    Vec3f playerPosition = this->actor.world.pos;
+		Vec3f rightHandPos = this->bodyPartsPos[PLAYER_BODYPART_R_HAND];
+		Vec3f position = rightHandPos;
+		
+		position.y = position.y + SMOKE_CLOUD_RIGHT_HAND_OFFSET;
 
-    s16 scale = 10;
-    s16 scaleStep = 10;
-    s16 life = 40;
+		s16 angle = this->actor.world.rot.y;
+
+		Vec2f playerFacing;
+		playerFacing.x = Math_SinS(angle);
+		playerFacing.y = Math_CosS(angle);
+		float xz_speed = 1.0f;
+
+    Vec3f velocity = {playerFacing.x * xz_speed, 0.4f, playerFacing.y * xz_speed};
+    Vec3f acceleration = {0.0f, -0.02f, 0.0f};
+
+    s16 scale = 50;
+    s16 scaleStep = 1;
+    s16 life = 20;
 
     EffectSsDust_Spawn(play, 0, &position, &velocity, &acceleration, &primColor, &envColor, scale, scaleStep, life, 0);
 }
 
+#define SMOKER_COOLDOWN 20
+#define SMOKER_ACTIONABLE_FRAME 17
+
 s32 Player_Smoker_Update(Player* this, PlayState* play) {
     //PRINTF("SMOKER IA UPDATE, %d\n", sUseHeldItem);
-    if (sUseHeldItem)
-    {
-        Actor_Spawn(&play->actorCtx, play, ACTOR_SMOKE_CLOUD, this->actor.world.pos.x, this->actor.world.pos.y, this->actor.world.pos.z, 0, 0, 0, 0);
-    }
+    Player* player = GET_PLAYER(play);
+
+		if (player->smokerCooldown == 0)
+		{
+			if (sUseHeldItem)
+			{
+					Vec3f rightHandPos = this->bodyPartsPos[PLAYER_BODYPART_R_HAND];
+
+					Actor_Spawn(&play->actorCtx, play, ACTOR_SMOKE_CLOUD, rightHandPos.x, rightHandPos.y + SMOKE_CLOUD_RIGHT_HAND_OFFSET, rightHandPos.z, 0, 0, 0, 0);
+					player->smokerCooldown = SMOKER_COOLDOWN;
+			}
+		} else {
+			player->smokerCooldown--;
+		}
 
     Player_Smoke_SpawnSmokeInHand(this, play);
-    return false;
+    return player->smokerCooldown >= SMOKER_ACTIONABLE_FRAME;
 }
 
 s32 Player_SetupAction(PlayState* play, Player* this, PlayerActionFunc actionFunc, s32 flags) {
