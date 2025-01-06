@@ -3436,6 +3436,7 @@ void Player_Smoke_SpawnSmokeInHand(Player* this, PlayState* play)
 
 #define SMOKER_COOLDOWN 20
 #define SMOKER_ACTIONABLE_FRAME 17
+#define SMOKER_MAGIC_COST 8
 
 s32 Player_Smoker_Update(Player* this, PlayState* play) {
     //PRINTF("SMOKER IA UPDATE, %d\n", sUseHeldItem);
@@ -3443,7 +3444,7 @@ s32 Player_Smoker_Update(Player* this, PlayState* play) {
 
 		if (player->smokerCooldown == 0)
 		{
-			if (sUseHeldItem)
+			if (sUseHeldItem && Magic_RequestChange(play, SMOKER_MAGIC_COST, MAGIC_CONSUME_NOW))
 			{
 					Vec3f rightHandPos = this->bodyPartsPos[PLAYER_BODYPART_R_HAND];
 
